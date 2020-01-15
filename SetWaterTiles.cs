@@ -60,7 +60,5 @@ public class SetWaterTiles
                 }
             }
         }
-        Debug.Log("maxWaterTiles: " + maxWaterTiles);
-        Debug.Log("numWaterTiles: " + numWaterTile);
     }
 }

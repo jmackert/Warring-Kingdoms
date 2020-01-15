@@ -10,7 +10,7 @@ public class SetGrassTiles
         {
             for(int j = 0; j < columns; j++)
             {
-                if(Grid[i,j] == null)
+                if(Grid[i,j] == null) // checks for missing tiles
                 {
                     Grid[i,j] = "G";
                 }
@@ -72,7 +72,7 @@ public class SetGrassTiles
                         Grid[i,j] = "G";
                     }
                 }
-                if(i != 0 && j != 0 && i != rows - 1  && j != columns - 1)
+                if(i != 0 && j != 0 && i != rows - 1  && j != columns - 1) //inside of grid
                 {
                     if(Grid[i,j] == "W" && Grid[i-1,j] != "W" && Grid[i+1,j] != "W" && Grid[i,j - 1] != "W" && Grid[i,j +1] != "W")
                     {

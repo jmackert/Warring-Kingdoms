@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gen : MonoBehaviour {
+public class MapGenerator : MonoBehaviour {
     public string[, ] Grid;
     private static int rows = 36;
     private static int columns = 36;
@@ -14,6 +14,7 @@ public class Gen : MonoBehaviour {
     {
         GenerateGridArray ();
         SetWaterTiles.SetWater(Grid,rows,columns);
+        SetMountainTiles.SetMountains(Grid,rows,columns);
         SetGrassTiles.SetGrass(Grid,rows,columns);
         GenerateTilePrefabs();
     }
@@ -30,10 +31,6 @@ public class Gen : MonoBehaviour {
                 if (rand == 0) 
                 {
                     Grid[i, j] = "G";
-                }
-                else if (rand == 1) 
-                {
-                    Grid[i, j] = "M";
                 }
                 else if (rand == 2)
                  {
