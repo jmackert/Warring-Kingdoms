@@ -42,7 +42,7 @@ public class Gen : MonoBehaviour {
             }
         }
     }
-    private void GenerateTiles () {
+    private void GenerateTilePrefabs () {
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
 
