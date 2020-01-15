@@ -15,7 +15,7 @@ public class Gen : MonoBehaviour {
         GenerateGridArray ();
         SetWaterTiles.SetWater(Grid,rows,columns);
         SetGrassTiles.SetGrass(Grid,rows,columns);
-        GenerateTiles();
+        GenerateTilePrefabs();
     }
 
     private void GenerateGridArray () 
