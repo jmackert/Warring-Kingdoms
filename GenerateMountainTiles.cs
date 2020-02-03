@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetMountainTiles
+public class GenerateMountainTiles
 {
-
-    public static void SetMountains(string[,] Grid,int rows, int columns)
+    public static void SetMountains(string[,] tileGrid,int rows, int columns)
     {
         int maxNumMountainTiles = rows * columns / 12;
         int numMountainTiles = 0;
+        string mountainTile = "M";
+
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
@@ -16,7 +17,7 @@ public class SetMountainTiles
                 int rand = Random.Range (0, 15);
                 if (rand == 1 && numMountainTiles != maxNumMountainTiles) 
                 {
-                    Grid[i, j] = "M";
+                    tileGrid[i, j] = mountainTile;
                     numMountainTiles++;
                 }
             }

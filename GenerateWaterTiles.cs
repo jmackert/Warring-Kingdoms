@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class SetWaterTiles
+public class GenerateWaterTiles
 {
-        public static void SetWater (string[,] Grid,int rows, int columns)
+        public static void SetWater (string[,] tileGrid,int rows, int columns)
      {
-        int maxWaterTiles = rows * columns / 2;
+        int maxWaterTiles = rows * columns;
         int numWaterTile = 0;
         int randX1 = Random.Range(0, rows);
         int randY1 = Random.Range(0, columns);
         int randX2 = Random.Range(0, rows);
         int randY2 = Random.Range(0, columns);
+        string waterTile = "W";
 
-        Grid[randX1,randY1] = "W";
+        tileGrid[randX1,randY1] = waterTile;
         numWaterTile++;
-        Grid[randX2,randY2] = "W";
+        tileGrid[randX2,randY2] = waterTile;
         numWaterTile++;
 
         for(int h = 0; h < 5; h++)
@@ -28,37 +29,47 @@ public class SetWaterTiles
                         if(i != 0 && j != 0 && i != rows - 1  && j != columns - 1)
                         {
                             
-                            if(Grid[i,j] == "W")
+                            if(tileGrid[i,j] == waterTile)
                             {
                                 int rand1 = Random.Range (0, 2);
                                 if(rand1 == 0 && numWaterTile != maxWaterTiles)
                                 {
-                                    Grid[i+1,j] = "W";
+                                   tileGrid[i+1,j] = waterTile;
                                     numWaterTile++;   
                                 }
                                 int rand2 = Random.Range (0,2);
                                 if(rand2 == 0 && numWaterTile != maxWaterTiles)
                                 {
-                                    Grid[i-1,j] = "W";
+                                   tileGrid[i-1,j] = waterTile;
                                     numWaterTile++;
                                 }
                                 int rand3 = Random.Range (0,2);
                                 if(rand3 == 0 && numWaterTile != maxWaterTiles)
                                 {
-                                    Grid[i,j+1] = "W";
+                                   tileGrid[i,j+1] = waterTile;
                                     numWaterTile++;
                                 }
                                 int rand4 = Random.Range (0,2);
                                 if(rand4 == 0 && numWaterTile != maxWaterTiles)
                                 {
-                                    Grid[i,j-1] = "W";;
+                                   tileGrid[i,j-1] = waterTile;;
                                     numWaterTile++;
                                 }
                             }
+                        }
+
+                    if(i != 0 && j != 0 && i != rows - 1  && j != columns - 1) //checks for one off non-water tiles and replaces them with water tiles
+                    {
+                        if(tileGrid[i,j] != waterTile && tileGrid[i-1,j] == waterTile && tileGrid[i+1,j] == waterTile && tileGrid[i,j - 1] == waterTile && tileGrid[i,j +1] == waterTile)
+                        {
+                           tileGrid[i,j] = waterTile;
                         }
                     }
                 }
             }
         }
+        }
+        Debug.Log("max: " + maxWaterTiles);
+        Debug.Log("total: " + numWaterTile);
     }
 }
