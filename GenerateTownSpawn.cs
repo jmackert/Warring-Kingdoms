@@ -1,29 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
+
 public class GenerateTownSpawn
 {
-    int numPlayers = 2;
 
-    public static void SetPlayerSpawns(string[,] Grid,int rows, int columns)
+    public static void SetPlayerSpawns(string[,] buildingGrid, string[,] resourceGrid, string[,] tileGrid,int rows, int columns)
     {
-        if(numPlayers == 2)
-        {
-            int randX1 = Random.Range(0, rows);
-            int randY1 = Random.Range(0, columns / 4);
+        string grassTile = "G";
+        string townCenter = "TC";
+        
+        int randX1 = Random.Range(0, rows);
+        int randY1 = Random.Range(0, columns);
 
-            int randX2 = Random.Range(0, rows);
-            int randY2 = Random.Range(columns / 4, columns);
-        }
-        else if(numPlayers == 3)
-        {
-            // do something
-        }
-        else if(numPlayers == 4)
-        {
-            // do something
-        }
+        int randX2 = Random.Range(0, rows);
+        int randY2 = Random.Range(0, columns);
+
+                if (tileGrid[randX1,randY1] == grassTile && resourceGrid[randX1,randY1] == null) 
+                {
+                    buildingGrid[randX1,randY1] = townCenter;
+                }
+                if(tileGrid[randX2,randY2] == grassTile && resourceGrid[randX2,randY2] == null)
+                {
+                    buildingGrid[randX2,randY2] = townCenter;
+                }
     }
 }
-*/

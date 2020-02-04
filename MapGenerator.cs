@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapGenerator : MonoBehaviour {
-    public string[, ] tileGrid;
-    public string[, ] resourceGrid;
+    public string[,] tileGrid;
+    public string[,] resourceGrid;
+    public string[,] buildingGrid;
     private static int rows = 36;
     private static int columns = 36;
     public Tile[] tiles = new Tile[rows * columns];
     public Resource[] resources = new Resource[rows * columns];
+    public Building[] buildings = new Building[rows * columns];
     private int tilesIndex = 0;
     private int resourcesIndex = 0;
+    private int buildingsIndex = 0;
     
     private void Start () 
     {
         GenerateTileGridArray ();
         GenerateResourceArray();
+        GenerateBuildingArray();
     }
 
     private void GenerateTileGridArray () 
@@ -46,6 +50,20 @@ public class MapGenerator : MonoBehaviour {
         }
         GenerateTrees.SetTrees(resourceGrid,tileGrid,rows,columns);
         GenerateResourcePrefabs();
+    }
+
+    private void GenerateBuildingArray()
+    {
+        buildingGrid = new string[rows, columns];
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+            }
+        }
+        GenerateTownSpawn.SetPlayerSpawns(buildingGrid,resourceGrid,tileGrid,rows,columns);
+        GenerateBuildingPrefabs();
     }
 
     private void GenerateResourcePrefabs()
@@ -91,6 +109,22 @@ public class MapGenerator : MonoBehaviour {
                     tiles[tilesIndex] = new Tile ("Water", waterTile, row, 0, column);
                 }
                 tilesIndex++;
+            }
+        }
+    }
+
+    private void GenerateBuildingPrefabs(){
+        string townTile = "TC";
+         for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+
+                Vector3 position = new Vector3 (row, 0, column);
+
+                if (buildingGrid[row,column] == townTile) {
+                    GameObject TownCenter = Instantiate (Resources.Load ("Cube"), position, Quaternion.identity) as GameObject;
+                    tiles[tilesIndex] = new Tile ("Town Center", TownCenter, row, 0, column);
+                    buildingsIndex++;
+                }
             }
         }
     }
