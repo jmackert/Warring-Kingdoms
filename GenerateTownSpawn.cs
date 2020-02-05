@@ -14,7 +14,7 @@ public class GenerateTownSpawn
         int randY1 = Random.Range(1, columns / 4);
 
         int randX2 = Random.Range(1, rows - 1);
-        int randY2 = Random.Range(columns / 2, columns);
+        int randY2 = Random.Range(columns / 2, columns -1);
 
         while(buildingGrid [randX1,randY1] == null)
         {
