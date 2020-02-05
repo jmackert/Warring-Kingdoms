@@ -118,13 +118,13 @@ public class MapGenerator : MonoBehaviour {
          for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
 
-                Vector3 position = new Vector3 (row, 0, column);
+                Vector3 position = new Vector3 (row, 1, column);
 
                 if (buildingGrid[row,column] == townTile) {
                     GameObject TownCenter = Instantiate (Resources.Load ("Cube"), position, Quaternion.identity) as GameObject;
-                    tiles[tilesIndex] = new Tile ("Town Center", TownCenter, row, 0, column);
-                    buildingsIndex++;
+                    buildings[buildingsIndex] = new Building ("Town Center", TownCenter, row, 1, column);
                 }
+                buildingsIndex++;
             }
         }
     }
