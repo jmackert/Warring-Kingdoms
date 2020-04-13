@@ -11,6 +11,8 @@ public class GenerateTownSpawn
         string townCenter = "TC";
 
             // do something with the tiles array....not sure why we have this method here at all but...
+            // 1. find the tile you want using x and y from the array
+            // 2. retrieve the tile type using your getter from Tile class
 
             int randX1 = Random.Range(1, rows - 1);
             int randY1 = Random.Range(1, columns / 4);
