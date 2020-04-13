@@ -59,7 +59,7 @@ public class MapGenerator : MonoBehaviour {
             {
             }
         }
-        GenerateTownSpawn.SetPlayerSpawns(buildingGrid,resourceGrid,tileGrid,rows,columns);
+        GenerateTownSpawn.SetPlayerSpawns(buildingGrid,resourceGrid,tileGrid,rows,columns, tiles);
         GenerateBuildingPrefabs();
     }
 
