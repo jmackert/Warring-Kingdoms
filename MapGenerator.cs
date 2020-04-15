@@ -30,6 +30,7 @@ public class MapGenerator : MonoBehaviour {
         GenerateWheatTiles.SetWheat(tileGrid,rows,columns);
         GenerateGoldOreTiles.SetGoldOre(tileGrid,rows,columns);
         GenerateGrassTiles.SetGrass(tileGrid,rows,columns);
+        GenerateTownCenterSpawn.SetTownCenterSpawns(tileGrid,rows,columns);
         GenerateTilePrefabs();
     }
 
@@ -40,6 +41,7 @@ public class MapGenerator : MonoBehaviour {
         string forestBlock = "F";
         string wheatBlock = "WH";
         string goldOreBlock = "GO";
+        string townCenterBlock = "TC";
 
     
         for (int row = 0; row < rows; row++) {
@@ -70,6 +72,10 @@ public class MapGenerator : MonoBehaviour {
                 if (tileGrid[row,column] == waterBlock) {
                     GameObject waterTile = Instantiate (Resources.Load ("Water_tile_01"), position, Quaternion.identity) as GameObject;
                     tiles[tilesIndex] = new Tile (waterTile, row, 0, column);
+                }
+                if (tileGrid[row,column] == townCenterBlock) {
+                GameObject townCenterTile = Instantiate (Resources.Load ("Town_Center_tile_01"), position, Quaternion.identity) as GameObject;
+                tiles[tilesIndex] = new Tile (townCenterTile, row, 0, column);
                 }
                 tilesIndex++;
             }
