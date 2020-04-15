@@ -15,7 +15,7 @@ public class GenerateMountainTiles
             for (int j = 0; j < columns; j++)
             {
                 int rand = Random.Range (0, 15);
-                if (rand == 1 && numMountainTiles != maxNumMountainTiles) 
+                if (rand == 1 && tileGrid[i,j] == null && numMountainTiles != maxNumMountainTiles) 
                 {
                     tileGrid[i, j] = mountainTile;
                     numMountainTiles++;

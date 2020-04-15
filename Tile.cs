@@ -5,16 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class Tile
 {
-    [SerializeField] private GameObject tileGameObject;
-    [SerializeField] private string tileType;
+    [SerializeField] private GameObject tileType;
     [SerializeField] private float xCord;
     [SerializeField] private float yCord;
     [SerializeField] private float zCord;
 
-    public Tile(string _tileType, GameObject obj, float _xCord, float _yCord, float _zCord)
+    public Tile(GameObject _tileType, float _xCord, float _yCord, float _zCord)
     {
         this.tileType = _tileType;
-        this.tileGameObject = obj;
         this.xCord = _xCord;
         this.yCord = _yCord;
         this.zCord = _zCord;
@@ -35,14 +33,9 @@ public class Tile
         return zCord;
     }
 
-    public string getTileType()
+    public GameObject getTileType()
     {
         return tileType;
-    }
-
-    public GameObject getTileGameObject()
-    {
-        return tileGameObject;
     }
 }
 

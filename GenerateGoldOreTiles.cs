@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerateGoldOre
+public class GenerateGoldOreTiles
 {
-    public static void SetGoldOre(string[,] resourceGrid, string[,] tileGrid, int rows, int columns)
+    public static void SetGoldOre(string[,] tileGrid, int rows, int columns)
     {
-        string grassTile = "G";
         string goldOreTile = "GO";
         int maxGoldOre = 10;
         int goldOreCount = 0;
@@ -16,9 +15,9 @@ public class GenerateGoldOre
             for (int j = 0; j < columns; j++)
             {   
                 int rand = Random.Range(0,100);
-                if(rand == 1 && tileGrid[i,j] == grassTile && goldOreCount < maxGoldOre)
+                if(rand == 1 && tileGrid[i,j] == null && goldOreCount < maxGoldOre)
                 {
-                    resourceGrid[i,j] = goldOreTile;
+                    tileGrid[i,j] = goldOreTile;
                     goldOreCount++;
                 }
             }

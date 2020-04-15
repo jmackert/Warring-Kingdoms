@@ -5,7 +5,7 @@ using UnityEngine;
 public class GenerateTownSpawn
 {
 
-    public static void SetPlayerSpawns(string[,] buildingGrid, string[,] resourceGrid, string[,] tileGrid,int rows, int columns)
+    public static void SetTownCenterSpawns(string[,] buildingGrid, string[,] resourceGrid, string[,] tileGrid,int rows, int columns)
     {
         string grassTile = "G";
         string townCenter = "TC";
