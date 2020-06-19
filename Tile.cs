@@ -10,6 +10,8 @@ public class Tile
     [SerializeField] private float yCord;
     [SerializeField] private float zCord;
 
+    public bool isTileSelected;
+
     public Tile(GameObject _tileType, float _xCord, float _yCord, float _zCord)
     {
         this.tileType = _tileType;
@@ -36,6 +38,27 @@ public class Tile
     public GameObject getTileType()
     {
         return tileType;
+    }
+
+    private void OnMouseDown() 
+    {
+            if(isTileSelected == true)
+            {
+                isTileSelected = false;
+            }
+            else
+            {   
+                isTileSelected = true;
+                GetTileInfo();
+            }
+    }
+
+    public void GetTileInfo()
+    {
+        Debug.Log(getTileType());
+        Debug.Log(getXCord());
+        Debug.Log(getYCord());
+        Debug.Log(getZCord());
     }
 }
 
