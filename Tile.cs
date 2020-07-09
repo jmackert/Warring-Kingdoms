@@ -9,8 +9,7 @@ public class Tile
     [SerializeField] private float xCord;
     [SerializeField] private float yCord;
     [SerializeField] private float zCord;
-
-    public bool isTileSelected;
+    [SerializeField] public bool isTileSelected = false;
 
     public Tile(GameObject _tileType, float _xCord, float _yCord, float _zCord)
     {
@@ -40,7 +39,11 @@ public class Tile
         return tileType;
     }
 
-    private void OnMouseDown() 
+    public void setTileType(GameObject _tileType)
+    {
+        tileType = _tileType;
+    }
+    public void OnClick() 
     {
             if(isTileSelected == true)
             {
