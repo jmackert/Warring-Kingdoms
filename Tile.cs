@@ -5,63 +5,60 @@ using UnityEngine;
 [System.Serializable]
 public class Tile
 {
-    [SerializeField] private GameObject tileType;
     [SerializeField] private float xCord;
     [SerializeField] private float yCord;
     [SerializeField] private float zCord;
-    [SerializeField] public bool isTileSelected = false;
+    [SerializeField] private string tileType = "Grass Tile";
+    [SerializeField] private GameObject tileGameObject;
 
-    public Tile(GameObject _tileType, float _xCord, float _yCord, float _zCord)
+    public Tile(float _xCord, float _yCord, float _zCord)
     {
-        this.tileType = _tileType;
         this.xCord = _xCord;
         this.yCord = _yCord;
         this.zCord = _zCord;
     }
 
-    public float getXCord()
+    public float GetXCord()
     {
         return xCord;
     }
 
-    public float getYCord()
+    public float GetYCord()
     {
         return yCord;
     }
 
-    public float getZCord()
+    public float GetZCord()
     {
         return zCord;
     }
 
-    public GameObject getTileType()
+    public GameObject GetTileGameObject()
+    {
+        return tileGameObject;
+    }
+
+    public void SetTileGameObject(GameObject _tileGameObject)
+    {
+        tileGameObject = _tileGameObject;
+    }
+
+    public void SetTileType(string _tileType)
+    {
+        tileType = _tileType;
+       // Debug.Log("Tile Type: " + tileType);
+    }
+
+    public string GetTileType()
     {
         return tileType;
     }
-
-    public void setTileType(GameObject _tileType)
-    {
-        tileType = _tileType;
-    }
-    public void OnClick() 
-    {
-            if(isTileSelected == true)
-            {
-                isTileSelected = false;
-            }
-            else
-            {   
-                isTileSelected = true;
-                GetTileInfo();
-            }
-    }
-
     public void GetTileInfo()
     {
-        Debug.Log(getTileType());
-        Debug.Log(getXCord());
-        Debug.Log(getYCord());
-        Debug.Log(getZCord());
+        Debug.Log(GetTileGameObject());
+        Debug.Log(GetXCord());
+        Debug.Log(GetYCord());
+        Debug.Log(GetZCord());
     }
 }
 
